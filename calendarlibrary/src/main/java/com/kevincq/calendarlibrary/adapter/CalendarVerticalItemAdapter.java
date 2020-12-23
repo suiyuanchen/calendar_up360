@@ -9,7 +9,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.kevincq.calendarlibrary.R;
@@ -160,7 +159,6 @@ public class CalendarVerticalItemAdapter extends BaseQuickAdapter<MNCalendarItem
         helper.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LogUtils.e("-------------点击开始------------");
 //                MNCalendarItemModel mnCalendarItemModel = mDatas.get(position);
 
                 Date dateClick = item.getDate();
@@ -169,9 +167,9 @@ public class CalendarVerticalItemAdapter extends BaseQuickAdapter<MNCalendarItem
                     Toast.makeText(context, "选择的日期必须大于今天", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                System.out.println(adapter.startDate + "===========" + adapter.endDate);
+
                 if (adapter.startDate != null && adapter.endDate != null) {
-                    adapter.startDate = null;
+                    adapter.startDate = dateClick;
                     adapter.endDate = null;
                 }
                 if (adapter.startDate == null) {
@@ -201,7 +199,6 @@ public class CalendarVerticalItemAdapter extends BaseQuickAdapter<MNCalendarItem
 
             }
         });
-        LogUtils.e("-------------结束时间----1---------" + System.currentTimeMillis());
     }
 
 }

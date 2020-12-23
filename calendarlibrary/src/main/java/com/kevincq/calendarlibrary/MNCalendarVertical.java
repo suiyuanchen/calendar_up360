@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.kevincq.calendarlibrary.adapter.MNCalendarVerticalAdapter;
 import com.kevincq.calendarlibrary.listeners.OnCalendarRangeChooseListener;
 import com.kevincq.calendarlibrary.model.Lunar;
@@ -118,7 +117,6 @@ public class MNCalendarVertical extends LinearLayout {
 
 
     private void initCalendarDatas() {
-LogUtils.e("------------initCalendarDatas 开始------------"+System.currentTimeMillis());
         //星期栏的显示和隐藏
         boolean mnCalendar_showWeek = mnCalendarVerticalConfig.isMnCalendar_showWeek();
         if (mnCalendar_showWeek) {
@@ -209,7 +207,6 @@ LogUtils.e("------------initCalendarDatas 开始------------"+System.currentTime
 
         //设置Adapter
         initAdapter();
-        LogUtils.e("------------initCalendarDatas 结束------------"+System.currentTimeMillis());
     }
 
     private Date mStartDate, mEndDate;

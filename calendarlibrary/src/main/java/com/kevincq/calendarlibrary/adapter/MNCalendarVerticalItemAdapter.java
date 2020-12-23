@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.kevincq.calendarlibrary.R;
 import com.kevincq.calendarlibrary.constant.MNConst;
 import com.kevincq.calendarlibrary.model.Lunar;
@@ -64,7 +63,6 @@ public class MNCalendarVerticalItemAdapter extends RecyclerView.Adapter<Recycler
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        LogUtils.e("-------------开始时间-1------------" + System.currentTimeMillis());
     }
 
     @Override
@@ -201,7 +199,6 @@ public class MNCalendarVerticalItemAdapter extends RecyclerView.Adapter<Recycler
             myViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    LogUtils.e("-------------点击开始------------");
                     MNCalendarItemModel mnCalendarItemModel = mDatas.get(position);
 
                     Date dateClick = mnCalendarItemModel.getDate();
@@ -210,7 +207,6 @@ public class MNCalendarVerticalItemAdapter extends RecyclerView.Adapter<Recycler
                         Toast.makeText(context, "选择的日期必须大于今天", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    System.out.println(adapter.startDate + "===========" + adapter.endDate);
                     if (adapter.startDate != null && adapter.endDate != null) {
                         adapter.startDate = null;
                         adapter.endDate = null;
@@ -242,7 +238,6 @@ public class MNCalendarVerticalItemAdapter extends RecyclerView.Adapter<Recycler
 
                 }
             });
-            LogUtils.e("-------------结束时间----1---------" + System.currentTimeMillis());
         }
     }
 

@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.blankj.utilcode.util.LogUtils;
 import com.kevincq.calendarlibrary.R;
 import com.kevincq.calendarlibrary.listeners.OnCalendarRangeChooseListener;
 import com.kevincq.calendarlibrary.model.MNCalendarItemModel;
@@ -62,7 +61,6 @@ public class MNCalendarVerticalAdapter extends RecyclerView.Adapter<RecyclerView
         this.currentCalendar = currentCalendar;
         this.mnCalendarVerticalConfig = mnCalendarVerticalConfig;
         layoutInflater = LayoutInflater.from(this.context);
-        LogUtils.e("-------------开始时间-------------" + System.currentTimeMillis());
     }
 
     @Override
@@ -105,7 +103,6 @@ public class MNCalendarVerticalAdapter extends RecyclerView.Adapter<RecyclerView
 //            MNCalendarVerticalItemAdapter mnCalendarVerticalItemAdapter = new MNCalendarVerticalItemAdapter(context, dates, calendarItem, this, mnCalendarVerticalConfig);
             CalendarVerticalItemAdapter mnCalendarVerticalItemAdapter = new CalendarVerticalItemAdapter(R.layout.mn_item_calendar_vertical_item_new, context, dates, calendarItem, this, mnCalendarVerticalConfig);
             myViewHolder.recyclerViewItem.setAdapter(mnCalendarVerticalItemAdapter);
-            LogUtils.e("-------------结束时间-------------" + System.currentTimeMillis());
         }
     }
 
