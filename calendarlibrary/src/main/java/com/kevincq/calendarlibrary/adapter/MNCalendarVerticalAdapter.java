@@ -133,9 +133,9 @@ public class MNCalendarVerticalAdapter extends RecyclerView.Adapter<RecyclerView
 
     public void notifyChoose() {
         if (this.onCalendarRangeChooseListener != null) {
-            if (startDate != null && endDate != null) {
+//            if (startDate != null && endDate != null) {
                 onCalendarRangeChooseListener.onRangeDate(startDate, endDate);
-            }
+//            }
         }
     }
 
