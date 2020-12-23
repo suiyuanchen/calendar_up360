@@ -5,6 +5,7 @@ import com.kevincq.calendarlibrary.constant.MNConst;
 import com.kevincq.calendarlibrary.model.Lunar;
 import com.kevincq.calendarlibrary.model.Solar;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -285,5 +286,30 @@ public class LunarCalendarUtils {
         return lunar;
     }
 
+    /**
+     * 判断该日期是否是该月的第一天
+     *
+     * @param date 需要判断的日期
+     * @return
+     */
+    public static boolean isFirstDayOfMonth(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        System.out.println(calendar.get(Calendar.MONTH));
+        return calendar.get(Calendar.DAY_OF_MONTH) == 1;
+    }
+
+    /**
+     * 判断该日期是否是该月的最后一天
+     *
+     * @param date 需要判断的日期
+     * @return
+     */
+    public static boolean isLastDayOfMonth(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DAY_OF_MONTH) == calendar
+                .getActualMaximum(Calendar.DAY_OF_MONTH);
+    }
 
 }

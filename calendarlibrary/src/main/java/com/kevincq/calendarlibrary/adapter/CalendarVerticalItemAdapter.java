@@ -15,6 +15,7 @@ import com.kevincq.calendarlibrary.R;
 import com.kevincq.calendarlibrary.constant.MNConst;
 import com.kevincq.calendarlibrary.model.MNCalendarItemModel;
 import com.kevincq.calendarlibrary.model.MNCalendarVerticalConfig;
+import com.kevincq.calendarlibrary.utils.LunarCalendarUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -129,11 +130,12 @@ public class CalendarVerticalItemAdapter extends BaseQuickAdapter<MNCalendarItem
 //            }
         }
 
-        if (position % 7 == 6) {
+        if (position % 7 == 6 || LunarCalendarUtils.isLastDayOfMonth(datePosition)) {
             helper.getView(R.id.iv_bg_right).setVisibility(View.INVISIBLE);
-        } else if (position % 7 == 0) {
+        } else if (position % 7 == 0 || LunarCalendarUtils.isFirstDayOfMonth(datePosition)) {
             helper.getView(R.id.iv_bg_left).setVisibility(View.INVISIBLE);
         }
+
         //小于今天的颜色变灰
 //            if (simpleDateFormat.format(datePosition).compareTo(simpleDateFormat.format(nowDate)) < 0) {
         if (datePosition.getTime() < nowDate.getTime()) {
